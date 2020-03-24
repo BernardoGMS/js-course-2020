@@ -140,6 +140,10 @@ button {
 button:hover { font-weight: 600; }
 button:hover i { margin-right: 20px; }
 
+.textBoxScore{
+    display: block;
+}
+
 button:focus {
     outline: none;
 }
