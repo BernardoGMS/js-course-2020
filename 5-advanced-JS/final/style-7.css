@@ -1,0 +1,22 @@
+h1 {
+    text-indent: 4%;
+}
+
+h2 {
+    text-indent: 6%;
+}
+
+h3 {
+    text-indent: 8%;
+}
+
+h4 {
+    text-indent: 10%;
+    color: green;
+}
+
+.question {
+    text-indent: 12%;
+    color: blue;
+    size: 8px;
+}
