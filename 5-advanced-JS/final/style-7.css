@@ -12,6 +12,11 @@ h2 {
     font-size: 24px;
 }
 
+.waitAnswer{
+    color: grey;
+    font-size: 30px;
+}
+
 .rightAnswer{
     color: green;
     font-size: 30px;
