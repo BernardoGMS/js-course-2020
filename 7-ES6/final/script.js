@@ -634,8 +634,118 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
 */
 
+class Build {
 
-class Element {
+    constructor(name, buildYear) {
+        this.name = name;
+        this.buildYear = buildYear;
+    }
+
+};
+class Park extends Build{
+
+    constructor(name, buildYear, numberOfTrees, area) {
+        super(name, buildYear);
+        this.numberOfTrees = numberOfTrees;
+        this.area = area;
+    }
+
+    calculateTreeDensity() {
+        console.log(`The street ${this.name} has a tree density of ${Math.round(this.numberOfTrees/this.area*1000,2)/1000}`)
+    }
+
+    calculateAge() {
+        return new Date().getFullYear() - this.buildYear;
+    }
+
+};
+
+class Street extends Build{
+
+    constructor(name, buildYear, streetLength) {
+        super(name, buildYear);
+        this.streetLength = streetLength;
+    }
+
+};
+
+let park1 = new Park('Dom Pedro I', 1989, 200, 80);
+let park2 = new Park('Da Bicha do Demónio', 2010, 102, 70);
+let park3 = new Park('Da Abundância', 2012, 2000, 75);
+
+let street1 = new Street('Rua das Flores Rosadas', 1950, 1000);
+let street2 = new Street('Rua Grande', 2017, 2500);
+let street3 = new Street('Rua Mininmom', 1966, 222);
+let street4 = new Street('Rua Secreta', 1989);
+
+let buildMap = new Map();
+buildMap.set('parkList',[park1, park2, park3]);
+buildMap.set('streetList',[street1, street2, street3, street4]);
+
+buildMap.get('parkList').forEach(element => {
+    element.calculateTreeDensity();
+});
+
+function calculateAverageAges(arr) {
+    const sum = arr.reduce((prev, cur) => prev + cur, 0);
+    return sum / arr.length; 
+}
+
+let allParksAges = buildMap.get('parkList').map(element => element.calculateAge());
+
+console.log('Out: ' + allParksAges);
+console.log(`The average ages of the parks is: ${Math.round(calculateAverageAges(allParksAges))}`);
+
+let parksMoreThen1000 = buildMap.get('parkList').map(element => element.numberOfTrees).find(element => element >= 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*class Element {
     constructor(name, buildYear) {
         this.name = name;
         this.buildYear = buildYear;
@@ -727,4 +837,4 @@ function reportStreets(s) {
 }
 
 reportParks(allParks);
-reportStreets(allStreets);
+reportStreets(allStreets);*/
