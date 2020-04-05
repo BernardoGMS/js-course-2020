@@ -7,6 +7,8 @@ export const clearRecipe = () => {
 
 const formatCount = count => {
 
+    count = Math.round(count*10)/10;
+
     if (count) {
         
         const [int, dec] = count.toString().split('.').map(element => parseInt(element, 10));
@@ -25,7 +27,7 @@ const formatCount = count => {
 
 };
 
-export const renderRecipe = recipe => {
+export const renderRecipe = (recipe, isLiked) => {
 
     const createIngredient = ingredient => `
             <li class="recipe__item">
@@ -77,7 +79,7 @@ export const renderRecipe = recipe => {
         </div>
         <button class="recipe__love">
             <svg class="header__likes">
-                <use href="img/icons.svg#icon-heart-outlined"></use>
+                <use href="img/icons.svg#${isLiked ? 'icon-heart' : 'icon-heart-outlined'}"></use>
             </svg>
         </button>
     </div>
